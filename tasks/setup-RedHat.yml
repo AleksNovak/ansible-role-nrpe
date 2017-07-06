@@ -1,0 +1,30 @@
+# vim: ft=ansible :
+---
+- name: Setup | Check EPEL state
+  stat:
+    path: "{{ epel_repofile_path }}"
+  register: epel_repofile_path
+
+- name: Setup | Copy nrpe rpm
+  copy:
+    src: "files/{{ item }}.el{{ ansible_distribution_major_version }}.x86_64.rpm"
+    dest: /tmp/
+  with_items:
+    - nagios-common-3.5.1-1
+    - nrpe-2.15-7
+  when: not epel_repofile_path.stat.exists
+
+- name: Setup | Install rpm
+  yum:
+    name: "/tmp/{{ item }}.el{{ ansible_distribution_major_version }}.x86_64.rpm"
+    state: present
+  with_items:
+    - nagios-common-3.5.1-1
+    - nrpe-2.15-7
+  when: not epel_repofile_path.stat.exists
+
+- name: Setup | Install via yum
+  yum:
+    name: nrpe
+    state: present
+  when: epel_repofile_path.stat.exists

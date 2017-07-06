@@ -1,0 +1,8 @@
+# vim: ft=ansible :
+---
+epel_repofile_path: /etc/yum.repos.d/epel.repo
+nrpe_config:
+  path: /etc/nagios
+  file: nrpe.cfg
+  port: 5666
+

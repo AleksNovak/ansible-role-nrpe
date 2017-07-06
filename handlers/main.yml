@@ -1,0 +1,8 @@
+# vim: ft=ansible :
+---
+# handlers file for ansible-role-nrpe
+- name: nrpe restart
+  service:
+    name: nrpe
+    state: restarted
+    enabled: yes

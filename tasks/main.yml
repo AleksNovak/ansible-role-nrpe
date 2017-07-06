@@ -1,0 +1,7 @@
+# vim: ft=ansible :
+---
+- name: Main | Include setup-{{ ansible_os_family }}.yml
+  include: "setup-{{ ansible_os_family }}.yml"
+
+- name: Main | Include config.yml
+  include: config.yml

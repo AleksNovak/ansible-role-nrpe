@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Alexandre Novakovski
+  description: NSFW
+  company: Capensis
+
+  issue_tracker_url: http://github.com/AleksNovak/ansible-role-nrpe/issue/tracker
+
+  license: BSD
+
+  min_ansible_version: 1.2
+
+  galaxy_tags:
+    - nrpe
+    - nagios
+    - client
+
+dependencies: []

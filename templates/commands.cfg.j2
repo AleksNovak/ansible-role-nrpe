@@ -1,0 +1,18 @@
+#############################################################################
+# NRPE COMMANDS
+#############################################################################
+
+
+# SONDES SYSTEME
+command[check_users]=/usr/lib64/nagios/plugins/nrpe_client/check_users -w $ARG1$ -c $ARG2$
+command[check_load]=/usr/lib64/nagios/plugins/nrpe_client/check_load -w $ARG1$ -c $ARG2$
+command[check_disk]=/usr/lib64/nagios/plugins/nrpe_client/check_disk -w $ARG1$ -c $ARG2$ -p $ARG3$
+command[check_procs]=/usr/lib64/nagios/plugins/nrpe_client/check_procs -w $ARG1$ -c $ARG2$ -a $ARG3$
+command[check_process]=/usr/lib64/nagios/plugins/nrpe_client/check_procs -a $ARG1$ -c $ARG2$
+command[check_mem]=/usr/lib64/nagios/plugins/nrpe_client/check_mem.pl -u -w $ARG1$ -c $ARG2$
+command[check_swap]=/usr/lib64/nagios/plugins/nrpe_client/check_swap -w $ARG1$ -c $ARG2$
+command[check_http]=/usr/lib64/nagios/plugins/nrpe_client/check_http -H $ARG1$
+command[check_port]=/usr/lib64/nagios/plugins/nrpe_client/scripts/check_listen_tcp_udp.sh -p $ARG1$ -P $ARG2$
+command[check_powerpath]=/usr/lib64/plugins/nrpe_client/check_powerpath_linux.sh
+command[check_coherence_powerpath]=/usr/lib64/nagios/plugins/nrpe_client/NagiosMonitoringCoherencePowerPathLinux.sh $ARG1$ $ARG2$
+command[check_file_exist]=/usr/lib64/nagios/plugins/nrpe_client/check_file_exist.sh $ARG1$

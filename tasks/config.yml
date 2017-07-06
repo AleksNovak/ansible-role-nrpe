@@ -1,0 +1,8 @@
+# vim: ft=ansible :
+---
+- name: "Config | Setup {{ nrpe_config.file }}"
+  template:
+    src: "nrpe.cfg.j2"
+    dest: "{{ nrpe_config.path }}/{{ nrpe_config.file }}"
+    backup: yes
+  notify: nrpe restart
